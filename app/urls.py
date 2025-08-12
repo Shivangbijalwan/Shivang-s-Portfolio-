@@ -8,5 +8,6 @@ urlpatterns = [
     path('signup', views.handleSignUp, name="handleSignUp"),
     path('login', views.handleLogin, name="handleLogin"),
     path('logout', views.handleLogout, name="handle"),
+    path('handlerequest/', views.handlerequest, name='HandleRequest'),
     
 ]

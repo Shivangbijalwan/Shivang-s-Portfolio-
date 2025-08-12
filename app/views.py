@@ -6,6 +6,8 @@ from django.contrib import messages
 from django.contrib.auth.models import User
 from django.http import HttpResponse
 from django.contrib.auth import authenticate , login , logout 
+from django.views.decorators import csrf_exempt
+
 
 def index(request):
     return render(request, "index.html")
@@ -78,5 +80,8 @@ def handleLogout(request):
    logout(request)
    messages.success(request, "You Are Successfully Logged Out")
    return redirect("index")
-   
-        
+
+@csrf_exempt# this will make your post request successful only in this def
+def handlerequest (request):
+    #paytm will send you the post request
+    pass
