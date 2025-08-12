@@ -5,6 +5,7 @@ from django.contrib.auth import login, logout, authenticate
 from django.contrib import messages
 from django.contrib.auth.models import User
 from django.http import HttpResponse
+from django.contrib.auth import authenticate , login , logout 
 
 def index(request):
     return render(request, "index.html")
@@ -55,10 +56,27 @@ def handleSignUp(request):
     else:
         return redirect("index")
     
-def handleLogin(request):
-     return HttpResponse ("handleLogin")     
+def handleLogin(request):    
+       if request.method == "POST":
+        loginusername = request.POST.get('loginusername')
+        loginpassword = request.POST.get('loginpassword')
 
+        user = authenticate(username=loginusername, password=loginpassword)
+
+        if user is not None:
+            login(request,user)
+            messages.success(request,"Successfully Logged In ")
+            return redirect("index")
+        else:
+            messages.error(request,"Invalid Inputs , Please Try Again ")
+            return redirect("index")
+
+        return HttpResponse ("handleLogin")
+    
         
 def handleLogout(request):
-      return HttpResponse ("handleLogout")
+   logout(request)
+   messages.success(request, "You Are Successfully Logged Out")
+   return redirect("index")
+   
         
