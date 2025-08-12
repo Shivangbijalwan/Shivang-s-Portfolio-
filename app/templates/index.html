@@ -1,0 +1,494 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Start your business with Shivang's Portfolio Website.">
+  <meta name="author" content="Shivang Bijalwan">
+  <title>Shivang's Website - Home</title>
+  <!-- font icons -->
+  <link rel="stylesheet" href="{% static 'app/vendors/themify-icons/css/themify-icons.css' %}">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'app/assets/css/style.css' %}">
+</head>
+
+<body data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
+
+{% if messages %}
+  {% for message in messages %}
+    <div class="alert alert-{{ message.tags }}">
+      {{ message }}
+    </div>
+  {% endfor %}
+{% endif %}
+
+  <!-- Page Navbar -->
+  <nav class="custom-navbar" data-spy="affix" data-offset-top="20">
+    <div class="container">
+      <a class="logo" href="#">Shivang_sbi &nbsp;&nbsp; / &nbsp;&nbsp; Home</a>
+      <ul class="nav">
+        <li class="item">
+          <a class="link" href="index.html">Home</a>
+        </li>
+        <li class="item">
+          <a class="link" href="#about">About</a>
+        </li>
+        <li class="item">
+          <a class="link" href="#portfolio">Portfolio</a>
+        </li>
+        <li class="item">
+          <a class="link" href="Contact.html">Contact</a>
+        </li>
+
+        <!-- Button trigger modal -->
+        <li class="item">
+          <button type="button" class="btn btn-primary m-1" data-bs-toggle="modal" data-bs-target="#signupModal">
+            Sign Up
+          </button>
+        </li>
+        <!-- Button trigger modal -->
+        <li class="item">
+          <button type="button" class="btn btn-primary m-1 " data-bs-toggle="modal" data-bs-target="#loginModal">
+            Login
+          </button>
+        </li>
+
+        <li class="item  ml-md-3">
+          <a href="https://wa.me/9389643021?text=I'm%20want%20to%20Hire%20you%20Shivang"
+            class="btn btn-primary m-1">Hire
+            ME</a>
+        </li>
+      </ul>
+      <a href="javascript:void(0)" id="nav-toggle" class="hamburger hamburger--elastic ">
+        <div class="hamburger-box">
+          <div class="hamburger-inner"></div>
+        </div>
+      </a>
+    </div>
+  </nav><!-- End of Page Navbar -->
+
+
+  <!-- page header -->
+  <header id="home" class="header">
+    <div class="overlay"></div>
+    <div class="header-content container">
+      <h1 class="header-title">
+        <span class="up">HI!</span>
+        <span class="down">I am Shivang Bijalwan</span>
+      </h1>
+      <p class="header-subtitle">Web Developer / Designer</p>
+
+      <a href="https://github.com/Shivangbijalwan" class="btn btn-primary">Visit My Github </a>
+    </div>
+    </div>
+  </header><!-- end of page header -->
+
+  <!-- modal-->
+<!-- SignUp Modal -->
+<div class="modal fade" id="signupModal" tabindex="-1" aria-labelledby="signupModal" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">SignUp Here</h5>
+        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="{% url 'signup' %}" method="POST">
+          {% csrf_token %}
+          <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" class="form-control" id="username" name="username" placeholder="Choose a unique username" required>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email address</label>
+            <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com" required>
+          </div>
+
+          <div class="form-group">
+            <label for="pass1">Choose a password</label>
+            <input type="password" class="form-control" id="pass1" name="password" placeholder="Choose Your Password" required>
+          </div>
+
+          <div class="form-group">
+            <label for="pass2">Confirm Password</label>
+            <input type="password" class="form-control" id="pass2" name="password2" placeholder="Enter your password again" required>
+          </div>
+
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Login Modal -->
+<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModal" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Login Here</h5>
+         <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="{% url 'login' %}" method="POST">
+          {% csrf_token %}
+          <div class="form-group">
+            <label for="loginusername">Username</label>
+            <input type="text" class="form-control" id="loginusername" name="username" placeholder="Enter your username" required>
+          </div>
+
+          <div class="form-group">
+            <label for="loginpass">Enter your password</label>
+            <input type="password" class="form-control" id="loginpass" name="password" placeholder="Enter your password" required>
+          </div>
+
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  <div class="container">
+    <footer class="footer">
+      <div class="footer-logo text-center">
+        <a href="#" class="logo"><i class="fa-solid fa-m"></i></a>
+        <a href="#" class="logo"><i class="fa-solid fa-y"></i></a>
+        <a href="#" class="logo"><i class="fa-solid fa-dash"></i></a>
+        <a href="#" class="logo"><i class="fa-solid fa-dash"></i></a>
+        <a href="#" class="logo"><i class="fa-solid fa-p"></i></a>
+        <a href="#" class="logo"><i class="fa-solid fa-r"></i></a>
+        <a href="#" class="logo"><i class="fa-solid fa-o"></i></a>
+        <a href="#" class="logo"><i class="fa-solid fa-f"></i></a>
+        <a href="#" class="logo"><i class="fa-solid fa-i"></i></a>
+        <a href="#" class="logo"><i class="fa-solid fa-l"></i></a>
+        <a href="#" class="logo"><i class="fa-solid fa-e"></i></a>
+        <a href="#" class="logo"><i class="fa-solid fa-s"></i></a>
+      </div>
+      <div class="social-links text-right m-auto ml-sm-auto">
+        <a href="https://www.instagram.com/shivang_sbi/" class="link"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://www.linkedin.com/in/shivangbijalwan/" class="link"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="https://x.com/Coderation117" class="link"><i class="fa-brands fa-x-twitter"></i></a>
+        <a href="https://github.com/Shivangbijalwan" class="link"><i class="fa-brands fa-github"></i></a>
+        <a href="https://www.youtube.com/channel/UCXcaKe05YROcQ3AHB54sMeg" class="link"><i
+            class="fa-brands fa-youtube"></i></a>
+        <a href="https://wa.me/9389643021?" class="link"><i class="fa-brands fa-whatsapp"></i></a>
+      </div>
+    </footer>
+  </div>
+
+  <!-- about section -->
+  <section class="section pt-0" id="about">
+    <!-- container -->
+    <div class="container text-center">
+      <!-- about wrapper -->
+      <div class="about">
+        <div class="about-img-holder">
+          <img src="{% static 'app/assets/imgs/me.png' %}" class="about-img" alt="Shivang Bijalwan">
+        </div>
+        <div class="about-caption">
+          <p class="section-subtitle">Who Am I ?</p>
+          <h2 class="section-title mb-3">About Me</h2>
+          <p>
+            Meet Shivang Bijalwan – where brains meet hustle. A 12th-grade Commerce student by day and a passionate
+            developer by night, Shivang is coding his way into the future with pure dedication. From mastering Django to
+            crafting digital masterpieces, he’s not just dreaming big — he’s building it, one project at a time.
+            Balancing board exams with backend logic like a pro, he’s steadily rising in the dev world with a clear
+            vision: to create something BIG that leaves a mark. As Shivang says, “Failing isn’t scary, staying average
+            is.”
+          </p>
+          <!--  <button href="" class="btn-rounded btn btn-outline-primary mt-4">Download CV</button> -->
+        </div>
+      </div><!-- end of about wrapper -->
+    </div><!-- end of container -->
+  </section> <!-- end of about section -->
+
+  <!-- service section -->
+  <section class="section" id="service">
+    <div class="container text-center">
+      <p class="section-subtitle">What I Do ?</p>
+      <h6 class="section-title mb-6">Service</h6>
+      <!-- row -->
+      <div class="row">
+        <div class="col-md-6 col-lg-3">
+          <div class="service-card">
+            <div class="body">
+              <img src="{% static 'app/assets/imgs/pencil-case.svg' %}" alt="Browser not supporting this file"
+                class="icon">
+              <h6 class="title">Posters, Designing</h6>
+              <p class="subtitle">Creating visually appealing and user-friendly designs for logos , Posters and Website.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="service-card">
+            <div class="body">
+              <img src="{% static 'app/assets/imgs/responsive.svg' %}" alt="Browser not supporting this file"
+                class="icon">
+              <h6 class="title">Website Development</h6>
+              <p class="subtitle">Building responsive and functional websites using the latest technologies.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="service-card">
+            <div class="body">
+              <img src="{% static 'app/assets/imgs/toolbox.svg' %}" alt="Browser not supporting this file" class="icon">
+              <h6 class="title">Website Redesigning , Redevelopment</h6>
+              <p class="subtitle">Revamping existing websites to enhance user experience and functionality.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="service-card">
+            <div class="body">
+              <img src="{% static 'app/assets/imgs/analytics.svg' %}" alt="Browser not supporting this file"
+                class="icon">
+              <h6 class="title"> Video Editing</h6>
+              <p class="subtitle"> Worked on various video editing tools like Microsoft ClipClamp , DaVinci Resolve ,
+                Filmora etc </p>
+            </div>
+          </div>
+        </div>
+      </div><!-- end of row -->
+    </div>
+  </section><!-- end of service section -->
+
+  <!-- portfolio section -->
+  <section class="section" id="portfolio">
+    <div class="container text-center">
+      <p class="section-subtitle">What I Did ?</p>
+      <h6 class="section-title mb-6">Portfolio</h6>
+      <!-- row -->
+      <div class="row">
+        <div class="col-md-4">
+          <a href="#" class="portfolio-card">
+            <img src="{% static 'app/assets/imgs/coding.png' %}" class="portfolio-card-img"
+              alt="Browser not supporting this file"> <span class="portfolio-card-overlay">
+              <span class="portfolio-card-caption">
+                <h4>Website Development</h4>
+                <p class="font-weight-normal">Html , Css , Js , Bootstrap , 'Django' framework of Python </p>
+              </span>
+            </span>
+          </a>
+        </div>
+        <div class="col-md-4">
+          <a href="#" class="portfolio-card">
+            <img class="portfolio-card-img" src="{% static 'app/assets/imgs/designing.png' %}"
+              class="img-responsive rounded" alt="Browser not supporting this file">
+            <span class="portfolio-card-overlay">
+              <span class="portfolio-card-caption">
+                <h4>Designing</h4>
+                <p class="font-weight-normal">Worked on Canva design , AI tools , Figma </p>
+              </span>
+            </span>
+          </a>
+        </div>
+        <div class="col-md-4">
+          <a href="#" class="portfolio-card">
+            <img class="portfolio-card-img" src="{% static 'app/assets/imgs/editing.png' %}"
+              class="img-responsive rounded" alt="Browser not supporting this file">
+            <span class="portfolio-card-overlay">
+              <span class="portfolio-card-caption">
+                <h4>Editing</h4>
+                <p class="font-weight-normal"> Microsoft ClipClamp , DaVinci Resolve , Filmora etc </p>
+              </span>
+            </span>
+          </a>
+        </div>
+      </div><!-- end of row -->
+    </div><!-- end of container -->
+  </section> <!-- end of portfolio section -->
+
+  <!-- section -->
+  <section class="section-sm bg-primary">
+    <!-- container -->
+    <div class="container text-center text-sm-left">
+      <!-- row -->
+      <div class="row align-items-center">
+        <div class="col-sm offset-md-1 mb-4 mb-md-0">
+          <h6 class="title text-light">Want to work with me?</h6>
+          <p class="m-0 text-light">Always feel Free to Contact & Hire me</p>
+        </div>
+        <div class="col-sm offset-sm-2 offset-md-3">
+          <a href="https://wa.me/9389643021?text=I'm%20want%20to%20Hire%20you%20Shivang"
+            class="btn btn-lg my-font btn-light rounded">Hire
+            ME</a>
+        </div>
+      </div> <!-- end of row -->
+    </div> <!-- end of container -->
+  </section> <!-- end of section -->
+
+  <!-- testimonial section -->
+  <section class="section" id="testmonial">
+    <div class="container text-center">
+      <p class="section-subtitle">What People Think About Me ?</p>
+      <h6 class="section-title mb-6">Testmonial</h6>
+
+      <!-- row -->
+      <div class="row">
+        <div class="col-md-6">
+          <div class="testimonial-card">
+            <div class="testimonial-card-img-holder">
+              <img src="{% static 'app/assets/imgs/avatar2.jpg ' %}" class="testimonial-card-img"
+                alt="Browser not supporting this file">
+            </div>
+            <div class="testimonial-card-body">
+              <p class="testimonial-card-subtitle">Working with Shivang Bijalwan has been
+                an absolute pleasure! He did an incredible job designing
+                both the website and logo for our Instagram profile. His attention to detail, creativity, and
+                professionalism really shine through in the final designs. The website is user-friendly, visually
+                stunning, and perfectly represents the essence of our brand. The logo he crafted captures the
+                spiritual and modern vibe we were aiming for. Highly recommend Shivang for anyone looking for
+                top-notch design work!</p>
+              <h6 class="testimonial-card-title">Hare_Krishna</h6>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="testimonial-card">
+            <div class="testimonial-card-img-holder">
+              <img src="{% static 'app/assets/imgs/avatar3.png' %}" class="testimonial-card-img"
+                alt="Browser not supporting this file">
+            </div>
+            <div class="testimonial-card-body">
+              <p class="testimonial-card-subtitle">Working with Shivang and his team has been an incredible experience.
+                They built a sleek, dynamic website that perfectly showcases the collection I have — making it easy for
+                visitors to browse through every car with style and clarity. The smooth transitions, clean layout, and
+                eye-catching visuals have completely transformed how my stock is presented online.
+
+                Each section of the site is thoughtfully designed to keep viewers engaged and interested. Their
+                creativity, consistency, and attention to detail truly made a difference. If you're looking for someone
+                who can take your online presence to the next level, Shivang and his team are exactly who you need.</p>
+              <h6 class="testimonial-card-title">The Hotwheel_Stop</h6>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> <!-- end of container -->
+  </section> <!-- end of testimonial section -->
+
+  <!-- blog section -->
+  <section class="section" id="blog">
+    <!-- container -->
+    <div class="container text-center">
+      <p class="section-subtitle">Top Posts?</p>
+      <h6 class="section-title mb-6">Blog</h6>
+      <!-- blog-wrapper -->
+      <div class="blog-card">
+        <div class="blog-card-header">
+          <img src="{% static 'app/assets/imgs/blog2.jpeg' %}" class="blog-card-img"
+            alt="Browser not supporting this file">
+        </div>
+        <div class="blog-card-body">
+          <h5 class="blog-card-title"> Restarting my Django journey from today!</h5>
+
+          <p class="blog-card-caption">
+            <a href="https://www.linkedin.com/feed/update/urn:li:activity:7357219180837773313/">By: Shivang
+              Bijalwan_Linked-In </a>
+          </p>
+          Yes, it’s taking time — thanks to the pressure of Class 12th Boards, but I’m not giving up.
+          Things aren't going as smooth as I thought in the beginning, and some problems are just getting solved, not
+          resolved. But that’s how growth works, right?
+          Currently, I’m rebuilding my personal portfolio website — this time with Django as the backend.
+          Last time it was built with just HTML, CSS, and JS, but now I'm aiming for something more dynamic,
+          feature-rich, and user-attractive......
+
+          <a href="https://www.linkedin.com/feed/update/urn:li:activity:7357219180837773313/"
+            class="blog-card-link">Read more <i class="ti-angle-double-right"></i></a>
+        </div>
+      </div><!-- end of blog wrapper -->
+
+      <!-- blog-wrapper -->
+      <div class="blog-card">
+        <div class="blog-card-header">
+          <img src="{% static 'app/assets/imgs/blog1.jpeg' %}" class="blog-card-img"
+            alt="Browser not supporting this file">
+        </div>
+        <div class="blog-card-body">
+          <h5 class="blog-card-title">2024 TO 2025</h5>
+
+          <p class="blog-card-caption">
+            <a
+              href="https://www.linkedin.com/pulse/2024-2025-shivang-bijalwan-9faqe/?trackingId=mjGGjlNeSdqvkVhiHjypFg%3D%3D">By:Shivang
+              bijalwan_Linked-In</a>
+
+          </p>
+
+          <p>As 2024 ends, and we begin the countdown into 2025, while going through some video streaming, I watched an
+            influencer talking about New Year's resolutions. This triggered me to think of how everyone does this.
+
+
+
+            Every year we take resolutions with much fervor. In January our motivational levels are sky-high, but as
+            time passes that motivation fades, and we abandon the promises we made—to ourselves, to society, to our
+            parents. It silently impacts our subconscious mind by teaching us to devalue hard work and .........
+          </p>
+
+          <a href="https://www.linkedin.com/pulse/2024-2025-shivang-bijalwan-9faqe/?trackingId=mjGGjlNeSdqvkVhiHjypFg%3D%3D"
+            class="blog-card-link">Read more <i class="ti-angle-double-right"></i></a>
+        </div>
+      </div><!-- end of blog wrapper -->
+
+    </div><!-- end of container -->
+  </section><!-- end of blog section -->
+
+  <!-- contact Me-->
+  <section class="section" id="blog">
+    <div class="container text-center">
+      <h6 class="section-title mb-6"><a href="Contact.html" class="btn btn-primary">Connect With Me</a></h6>
+    </div>
+  </section>
+  <!-- contact Me end -->
+
+  <!-- footer -->
+  <div class="container">
+    <footer class="footer">
+      <div class="footer-logo text-center">
+        <a href="#" class="logo">Shivang_sbi</a>
+      </div>
+      <div class="social-links text-right m-auto ml-sm-auto">
+        <a href="https://www.instagram.com/shivang_sbi/" class="link"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://www.linkedin.com/in/shivangbijalwan/" class="link"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="https://x.com/Coderation117" class="link"><i class="fa-brands fa-x-twitter"></i></a>
+        <a href="https://github.com/Shivangbijalwan" class="link"><i class="fa-brands fa-github"></i></a>
+        <a href="https://www.youtube.com/channel/UCXcaKe05YROcQ3AHB54sMeg" class="link"><i
+            class="fa-brands fa-youtube"></i></a>
+        <a href="https://wa.me/9389643021?" class="link"><i class="fa-brands fa-whatsapp"></i></a>
+      </div>
+    </footer>
+  </div> <!-- end of page footer -->
+
+
+  {% block content %}{% endblock %}
+
+  <script src="{% static 'js/theme-toggle.js' %}"></script>
+
+  <!-- core  -->
+  <script src="{% static 'app/assets/vendors/jquery/jquery-3.4.1.js' %}"></script>
+  <script src="{% static 'app/assets/vendors/bootstrap/bootstrap.bundle.js' %}"></script>
+
+  <!-- font awesome-->
+  <script src="https://kit.fontawesome.com/97dc99e1d1.js" crossorigin="anonymous"></script>
+
+  <!-- bootstrap 3 affix -->
+  <script src="{% static 'app/assets/vendors/bootstrap/bootstrap.affix.js' %}"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- script js -->
+  <script src="{% static 'app/assets/js/script.js' %}"></script>
+
+</body>
+</html>

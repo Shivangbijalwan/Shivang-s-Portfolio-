@@ -1,0 +1,153 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Start your business with Shivang's Portfolio Website.">
+  <meta name="author" content="Shivang Bijalwan">
+  <title>Shivang's Website - Contact</title>
+  <!-- font icons -->
+  <link rel="stylesheet" href="{% static 'app/vendors/themify-icons/css/themify-icons.css' %}">
+
+  <link rel="stylesheet" href="{% static 'app/assets/css/style.css' %}">
+</head>
+
+<body data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
+
+
+  <!-- Page Navbar -->
+  <nav class="custom-navbar" data-spy="affix" data-offset-top="20">
+    <div class="container">
+      <a class="logo" href="#">Shivang_sbi &nbsp; &nbsp; / &nbsp; &nbsp;Contact</a>
+      <ul class="nav">
+        <li class="item">
+          <a class="link" href="index.html">Home</a>
+        </li>
+        <li class="item">
+          <a class="link" href="#about">About</a>
+        </li>
+        <li class="item">
+          <a class="link" href="#portfolio">Portfolio</a>
+        </li>
+        <li class="item">
+          <a class="link" href="#testmonial">Testmonial</a>
+        </li>
+        <li class="item">
+          <a class="link" href="#blog">Blog</a>
+        </li>
+        <li class="item">
+          <a class="link" href="Contact.html">Contact</a>
+        </li>
+        <li class="item ml-md-3">
+          <a href="https://wa.me/9389643021?text=I'm%20want%20to%20Hire%20you%20Shivang" class="btn btn-primary">Hire
+            ME</a>
+        </li>
+      </ul>
+      <a href="javascript:void(0)" id="nav-toggle" class="hamburger hamburger--elastic">
+        <div class="hamburger-box">
+          <div class="hamburger-inner"></div>
+        </div>
+      </a>
+    </div>
+  </nav><!-- End of Page Navbar -->
+
+  <!-- page header -->
+  <header id="home" class="header">
+    <div class="overlay"></div>
+    <div class="header-content container">
+      <h1 class="header-title">
+        <span class="up">HI!</span>
+        <span class="down">I am Shivang Bijalwan</span>
+      </h1>
+      <p class="header-subtitle">Web Developer / Designer</p>
+
+      <a href="https://github.com/Shivangbijalwan" class="btn btn-primary">Visit My Github </a>
+    </div>
+    </div>
+  </header><!-- end of page header -->
+  
+
+  <!-- contact section -->
+  <section class="section" id="contact">
+    <div class="container text-center">
+      <p class="section-subtitle">How can you communicate?</p>
+      <h6 class="section-title mb-5">Contact Me</h6>
+      <!-- contact form -->
+      <form action="{% url 'contact' %}" method="post" class="contact-form col-md-10 col-lg-8 m-auto">
+        {% csrf_token %}
+        <div class="form-row">
+          <div class="form-group col-sm-6">
+            <input type="text" size="50" name="name" class="form-control" placeholder="Your Name" required>
+          </div>
+          <div class="form-group col-sm-6">
+            <input type="text" name="subject" class="form-control" placeholder="Enter Subject" required>
+          </div>
+          <div class="form-group col-sm-6">
+            <input type="number" name="phone" class="form-control" placeholder="Enter Phone number" required>
+          </div>
+          <div class="form-group col-sm-6">
+            <input type="email" name="email" class="form-control" placeholder="Enter Email" required>
+          </div>
+          <div class="form-group col-sm-12">
+            <textarea name="comment" id="comment" rows="6" class="form-control"
+              placeholder="Write Something"></textarea>
+          </div>
+          <div class="form-group col-sm-12 mt-3">
+            <input type="submit" value="Send Message" class="btn btn-outline-primary rounded">
+          </div>
+        </div>
+      </form><!-- end of contact form -->
+    </div><!-- end of container -->
+  </section><!-- end of contact section -->
+
+  <!-- footer -->
+  <div class="container">
+    <footer class="footer">
+      <div class="footer-logo text-center">
+        <a href="#" class="logo">Shivang_sbi</a>
+      </div>
+      <div class="social-links text-right m-auto ml-sm-auto">
+        <a href="https://www.instagram.com/shivang_sbi/" class="link"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://www.linkedin.com/in/shivangbijalwan/" class="link"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="https://x.com/Coderation117" class="link"><i class="fa-brands fa-x-twitter"></i></a>
+        <a href="https://github.com/Shivangbijalwan" class="link"><i class="fa-brands fa-github"></i></a>
+        <a href="https://www.youtube.com/channel/UCXcaKe05YROcQ3AHB54sMeg" class="link"><i
+            class="fa-brands fa-youtube"></i></a>
+        <a href="https://wa.me/9389643021?" class="link"><i class="fa-brands fa-whatsapp"></i></a>
+      </div>
+    </footer>
+  </div> <!-- end of page footer -->
+
+{% if messages %}
+  <script>
+    {% for message in messages %}
+      alert("{{ message }}");
+    {% endfor %}
+  </script>
+{% endif %}
+
+</div>
+
+
+   {% block content %}{% endblock %}
+
+    <script src="{% static 'js/theme-toggle.js' %}"></script>
+
+  <!-- core  -->
+  <script src="{% static 'app/assets/vendors/jquery/jquery-3.4.1.js' %}"></script>
+  <script src="{% static 'app/assets/vendors/bootstrap/bootstrap.bundle.js' %}"></script>
+
+  <!-- font awesome-->
+  <script src="https://kit.fontawesome.com/97dc99e1d1.js" crossorigin="anonymous"></script>
+
+  <!-- bootstrap 3 affix -->
+  <script src="{% static 'app/assets/vendors/bootstrap/bootstrap.affix.js' %}"></script>
+
+  <!-- script js -->
+  <script src="{% static 'app/assets/js/script.js' %}"></script>
+
+</body>
+
+</html>
