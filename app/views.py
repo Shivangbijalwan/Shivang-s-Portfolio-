@@ -24,54 +24,33 @@ def contact(request):
 
     return render(request, 'Contact.html')
 
-
-def handleSignup(request):
-    if request.method == 'POST':
+def handleSignUp(request):
+    if request.method == "POST":
         username = request.POST.get('username')
         email = request.POST.get('email')
-        pass1 = request.POST.get('password')
-        pass2 = request.POST.get('password2')
+        pass1 = request.POST.get('pass1')
+        pass2 = request.POST.get('pass2')
 
+        # Password match check
         if pass1 != pass2:
             messages.error(request, "Passwords do not match.")
-            return redirect('index')
+            return redirect("index")
 
+        # Username already exists?
         if User.objects.filter(username=username).exists():
-            messages.error(request, "Username already exists.")
-            return redirect('index')
+            messages.error(request, "Username already taken. Please choose another.")
+            return redirect("index")
 
+        # Email already exists? (optional)
         if User.objects.filter(email=email).exists():
-            messages.error(request, "Email already registered.")
-            return redirect('index')
+            messages.error(request, "Email already registered. Please log in.")
+            return redirect("index")
 
-        user = User.objects.create_user(username=username, email=email, password=pass1)
-        user.save()
-        messages.success(request, "Signup successful! You can now login.")
-        return redirect('index')
+        # Create the user
+        myuser = User.objects.create_user(username=username, email=email, password=pass1)
+        myuser.save()
+        messages.success(request, "Your account has been created successfully!")
+        return redirect("index")
 
-    return render(request, 'index.html')
-
-
-
-
-def handleLogin(request):
-    if request.method == 'POST':
-        username = request.POST.get('username')
-        password = request.POST.get('password')
-
-        user = authenticate(username=username, password=password)
-
-        if user is not None:
-            login(request, user)
-            messages.success(request, "Login successful.")
-            return redirect('index')
-        else:
-            messages.error(request, "Invalid credentials.")
-            return redirect('index')
-
-    return render(request, 'index.html')
-
-def handleLogout(request):
-    logout(request)
-    messages.success(request, "You have been logged out.")
-    return redirect('index')
+    else:
+        return redirect("index")

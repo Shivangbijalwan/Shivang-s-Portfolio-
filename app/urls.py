@@ -4,8 +4,6 @@ from django.http import HttpResponse
 
 urlpatterns = [
     path('', views.index, name='index'),
-    path('signup/', views.handleSignup, name='signup'),
-    path('login/', views.handleLogin, name='login'),
-    path('logout/', views.handleLogout, name='logout'),
     path('contact/', views.contact, name='contact'),
+    path('signup', views.handleSignUp, name="handleSignUp"),
 ]
