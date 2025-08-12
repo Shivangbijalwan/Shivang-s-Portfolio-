@@ -54,3 +54,11 @@ def handleSignUp(request):
 
     else:
         return redirect("index")
+    
+def handleLogin(request):
+     return HttpResponse ("handleLogin")     
+
+        
+def handleLogout(request):
+      return HttpResponse ("handleLogout")
+        
