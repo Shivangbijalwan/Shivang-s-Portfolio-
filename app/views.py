@@ -74,7 +74,6 @@ def handleLogin(request):
             messages.error(request,"Invalid Inputs , Please Try Again ")
             return redirect("index")
 
-        return HttpResponse ("handleLogin")
     
         
 def handleLogout(request):
