@@ -5,6 +5,5 @@
   ],
   "routes": [
     { "src": "/(.*)", "dest": "project/wsgi.py" }
-  ],
-  "ignoreCommand": "echo 'Skipping files listed in .vercelignore'"
+  ]
 }
