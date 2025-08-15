@@ -24,7 +24,7 @@ def contact(request):
         contact = Contact(name=name, subject=subject, phone=phone, email=email, comment=comment)
         contact.save()
         messages.success(request, "Message sent successfully.")
-        return redirect('contact')
+        return redirect('Contact.html')
 
     return render(request, 'Contact.html')
 
@@ -38,28 +38,28 @@ def handleSignUp(request):
         # Password match check
         if pass1 != pass2:
             messages.error(request, "Passwords do not match.")
-            return redirect("index")
+            return redirect("index.html")
 
         # Username already exists?
         if User.objects.filter(username=username).exists():
             messages.error(request, "Username already taken. Please choose another.")
-            return redirect("index")
+            return redirect("index.html")
 
         # Email already exists? (optional)
         if User.objects.filter(email=email).exists():
             messages.error(request, "Email already registered. Please log in.")
-            return redirect("index")
+            return redirect("index.html")
 
         # Create the user
         myuser = User.objects.create_user(username=username, email=email, password=pass1)
         myuser.save()
         messages.success(request, "Your account has been created successfully!")
-        return redirect("index")
+        return redirect("index.html")
 
     else:
-        return redirect("index")
-    
-def handleLogin(request):    
+        return redirect("index.html")
+
+def handleLogin(request):
        if request.method == "POST":
         loginusername = request.POST.get('loginusername')
         loginpassword = request.POST.get('loginpassword')
@@ -69,14 +69,14 @@ def handleLogin(request):
         if user is not None:
             login(request,user)
             messages.success(request,"Successfully Logged In ")
-            return redirect("index")
+            return redirect("index.html")
         else:
             messages.error(request,"Invalid Inputs , Please Try Again ")
-            return redirect("index")
+            return redirect("index.html")
 
     
         
 def handleLogout(request):
    logout(request)
    messages.success(request, "You Are Successfully Logged Out")
-   return redirect("index")
+   return redirect("index.html")
