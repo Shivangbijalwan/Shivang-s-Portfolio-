@@ -6,13 +6,10 @@ import os
 import dj_database_url
 from pathlib import Path
 from django.contrib.messages import constants as messages
-
-import os
 from dotenv import load_dotenv
 
-# Load environment variables from .env file
-load_dotenv()
 
+load_dotenv()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -66,9 +63,11 @@ TEMPLATES = [
 WSGI_APPLICATION = 'project.wsgi.application'
 
 
+
 DATABASES = {
     'default': dj_database_url.parse(
-        os.environ.get("DATABASE_URL")
+        os.environ.get("DATABASE_URL"),
+        conn_max_age=600
     )
 }
 
