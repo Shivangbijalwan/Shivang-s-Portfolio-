@@ -13,7 +13,13 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="{% static 'app/assets/css/style.css' %}">
 </head>
-
+<style>
+  #background {
+     background-image: url("{% static 'app/assets/imgs/Background.png' %}");
+     background-size: cover;
+     background-position:center;
+  }
+</style>
 
 <body data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
 
@@ -183,11 +189,6 @@
     </div>
   </div>
 </div>
-
-
-
-
-
 
 
   <div class="container">
@@ -475,6 +476,29 @@
     </div><!-- end of container -->
   </section><!-- end of blog section -->
 
+
+  <!-- LINKED IN BOX-->
+   
+  <!-- blog section -->
+  <section class="section" id="blog">
+    <!-- container -->
+    <div class="container text-center"> 
+      <p class="section-subtitle">Linked In</p>
+      <h6 class="section-title mb-6">Fast Connection</h6>
+      <!-- blog-wrapper -->
+      <div class="blog-card" id="background" >
+       
+        <div class="blog-card-body"  >
+         <div class="badge-base LI-profile-badge" data-locale="en_US" data-size="large" data-theme="dark" data-type="VERTICAL" data-vanity="shivangbijalwan" data-version="v1"><a class="badge-base__link LI-simple-link" href="https://in.linkedin.com/in/shivangbijalwan?trk=profile-badge"> </a></div>
+              <p class="blog-card-caption">
+             
+
+        </div>
+      </div><!-- end of blog wrapper -->
+  </div><!-- end of container -->
+  </section><!-- end of blog section -->
+
+
   <!-- contact Me-->
   <section class="section" id="blog">
     <div class="container text-center">
@@ -519,6 +543,8 @@
 
   <!-- script js -->
   <script src="{% static 'app/assets/js/script.js' %}"></script>
+
+<script src="https://platform.linkedin.com/badges/js/profile.js" async defer type="text/javascript"></script>
 
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
