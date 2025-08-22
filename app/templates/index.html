@@ -29,7 +29,7 @@
   <!-- Page Navbar -->
   <nav class="custom-navbar" data-spy="affix" data-offset-top="20">
     <div class="container">
-      <a class="logo" href="#">Shivang_sbi &nbsp;&nbsp; / &nbsp;&nbsp; Home</a>
+      <a class="logo" href="#">Shivang_sbi</a>
       <ul class="nav">
         <li class="item">
           <a class="link" href="index.html">Home</a>
@@ -37,9 +37,7 @@
         <li class="item">
           <a class="link" href="#about">About</a>
         </li>
-        <li class="item">
-          <a class="link" href="#portfolio">Portfolio</a>
-        </li>
+       
         <li class="item">
           <a class="link" href="{% url 'contact' %}">Contact</a>
         </li>
@@ -78,6 +76,13 @@
             ME</a>
         </li>
       </ul>
+
+      <form class="d-flex" role="search" method="POST" action="{% url 'Search' %}">
+        <input class="form-control me-2" type="search" style="color: white;" placeholder="Search" aria-label="Search"/ name="Searched">
+        <button class="btn btn-outline-secondary"  type="submit">Search</button>
+        {% csrf_token %}
+      </form>
+
       <a href="javascript:void(0)" id="nav-toggle" class="hamburger hamburger--elastic ">
         <div class="hamburger-box">
           <div class="hamburger-inner"></div>
@@ -96,11 +101,6 @@
 </div>
 
 
-      <form class="d-flex" role="search" method="POST" action="{% url 'Search' %}">
-        <input class="form-control me-2" type="search" style="color: white;" placeholder="Search" aria-label="Search"/ name="Searched">
-        <button class="btn btn-outline-secondary"  type="submit">Search</button>
-        {% csrf_token %}
-      </form>
 
   </nav><!-- End of Page Navbar -->
 
