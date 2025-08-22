@@ -20,6 +20,7 @@
      background-position:center;
   }
 </style>
+{% block navbar %}
 
 <body data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
 
@@ -93,7 +94,14 @@
   </div>
   {% endfor %}
 </div>
- 
+
+
+      <form class="d-flex" role="search" method="POST" action="{% url 'Search' %}">
+        <input class="form-control me-2" type="search" style="color: white;" placeholder="Search" aria-label="Search"/ name="Searched">
+        <button class="btn btn-outline-secondary"  type="submit">Search</button>
+        {% csrf_token %}
+      </form>
+
   </nav><!-- End of Page Navbar -->
 
   <!-- page header -->
@@ -190,7 +198,7 @@
     </div>
   </div>
 </div>
-
+{% endblock%}
 
   <div class="container">
     <footer class="footer">
@@ -508,6 +516,7 @@
   </section>
   <!-- contact Me end -->
 
+
   <!-- footer -->
   <div class="container">
     <footer class="footer">
@@ -526,8 +535,6 @@
     </footer>
   </div> <!-- end of page footer -->
 
-
-  {% block content %}{% endblock %}
 
   <script src="{% static 'js/theme-toggle.js' %}"></script>
 

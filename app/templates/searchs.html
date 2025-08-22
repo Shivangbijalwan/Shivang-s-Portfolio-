@@ -1,6 +1,4 @@
-
 {% load static %}
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,43 +7,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="Start your business with Shivang's Portfolio Website.">
   <meta name="author" content="Shivang Bijalwan">
-  <title>Shivang's Website - Contact</title>
+  <title>Shivang's Website - Search</title>
   <!-- font icons -->
   <link rel="stylesheet" href="{% static 'app/vendors/themify-icons/css/themify-icons.css' %}">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="{% static 'app/assets/css/style.css' %}">
 </head>
 <body>
-  <!-- contact section -->
+      <!-- contact section -->
   <section class="section" id="contact">
     <div class="container text-center">
-      <p class="section-subtitle">How can you communicate?</p>
-      <h6 class="section-title mb-5">Contact Me</h6>
-      <!-- contact form -->
-      <form action="{% url 'contact' %}" method="post" class="contact-form col-md-10 col-lg-8 m-auto">
-        {% csrf_token %}
-        <div class="form-row">
-          <div class="form-group col-sm-6">
-            <input type="text" size="50" name="name" class="form-control" placeholder="Your Name" required>
-          </div>
-          <div class="form-group col-sm-6">
-            <input type="text" name="subject" class="form-control" placeholder="Enter Subject" required>
-          </div>
-          <div class="form-group col-sm-6">
-            <input type="number" name="phone" class="form-control" placeholder="Enter Phone number" required>
-          </div>
-          <div class="form-group col-sm-6">
-            <input type="email" name="email" class="form-control" placeholder="Enter Email" required>
-          </div>
-          <div class="form-group col-sm-12">
-            <textarea name="comment" id="comment" rows="6" class="form-control"
-              placeholder="Write Something"></textarea>
-          </div>
-          <div class="form-group col-sm-12 mt-3">
-            <input type="submit" value="Send Message" class="btn btn-outline-primary rounded">
-          </div>
-        </div>
-      </form><!-- end of contact form -->
+      <p class="section-subtitle">Do You Have Search Somethings?</p>
+      <h6 class="section-title mb-5">YOUR SEARCH RESULTS</h6>
+      {% if Searched %}
+      <p>You searched for: <strong>{{ Searched }}</strong></p>
+      {% else %}
+      <p>No search term provided.</p>
+      {% endif %}
+
     </div><!-- end of container -->
   </section><!-- end of contact section -->
 

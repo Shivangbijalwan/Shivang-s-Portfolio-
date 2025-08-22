@@ -10,6 +10,14 @@ from datetime import datetime
 
 from django.http import HttpResponse
 
+def handleSearch(request):
+    if request.method == "POST":
+       Searched = request.POST['Searched']
+       return render(request, "searchs.html", {"Searched": Searched})
+    else:
+        return render(request, "searchs.html")
+
+
 def index(request):
     return render(request, "index.html")
 
