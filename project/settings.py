@@ -53,12 +53,18 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'project.wsgi.application'
-
+# settings.py
 DATABASES = {
-    'default': dj_database_url.config(
-        default=os.environ.get("DATABASE_URL")
-    )
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'mydb_i554',
+        'USER': 'mydb_i554_user',
+        'PASSWORD': '5Ab9AhUy3NyPvcYDOKhQsrUMlZTRjtXJ',
+        'HOST': 'dpg-d2k6pqqli9vc73e0kc00-a.singapore-postgres.render.com',
+        'PORT': '5432',
+    }
 }
+
 # Static files
 STATIC_URL = "/static/"
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")

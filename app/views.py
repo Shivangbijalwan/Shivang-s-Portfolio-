@@ -8,18 +8,21 @@ from django.http import HttpResponse
 from django.contrib.auth import authenticate , login , logout 
 from datetime import datetime
 from django.contrib.postgres.search import SearchQuery, SearchRank, SearchVector
-from .models import Contact   # replace with your model(s) add comma between
+from django.contrib.postgres.search import SearchVector, SearchQuery, SearchRank
+from .models import Post
+  # replace with your model(s) add comma between
 from django.http import HttpResponse
+
 
 
 def handleSearch(request):
     if request.method == "POST":
         searched = request.POST['searched']
 
-        vector = SearchVector('name', 'subject', 'phone', 'email', 'comment')
+        vector = SearchVector('title', 'content')
         query = SearchQuery(searched)
 
-        results = Contact.objects.annotate(
+        results = Post.objects.annotate(
             rank=SearchRank(vector, query)
         ).filter(rank__gte=0.1).order_by('-rank')
 
@@ -30,7 +33,7 @@ def handleSearch(request):
     else:
         return render(request, "searchs.html")
 
-            
+        
 
 def index(request):
     return render(request, "index.html")
