@@ -7,16 +7,30 @@ from django.contrib.auth.models import User
 from django.http import HttpResponse
 from django.contrib.auth import authenticate , login , logout 
 from datetime import datetime
-
+from django.contrib.postgres.search import SearchQuery, SearchRank, SearchVector
+from .models import Contact   # replace with your model(s) add comma between
 from django.http import HttpResponse
+
 
 def handleSearch(request):
     if request.method == "POST":
-       Searched = request.POST['Searched']
-       return render(request, "searchs.html", {"Searched": Searched})
+        searched = request.POST['searched']
+
+        vector = SearchVector('name', 'subject', 'phone', 'email', 'comment')
+        query = SearchQuery(searched)
+
+        results = Contact.objects.annotate(
+            rank=SearchRank(vector, query)
+        ).filter(rank__gte=0.1).order_by('-rank')
+
+        return render(request, "searchs.html", {
+            "searched": searched,
+            "results": results
+        })
     else:
         return render(request, "searchs.html")
 
+            
 
 def index(request):
     return render(request, "index.html")

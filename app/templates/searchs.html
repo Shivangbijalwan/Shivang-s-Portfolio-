@@ -19,11 +19,19 @@
     <div class="container text-center">
       <p class="section-subtitle">Do You Have Search Somethings?</p>
       <h6 class="section-title mb-5">YOUR SEARCH RESULTS</h6>
-      {% if Searched %}
-      <p>You searched for: <strong>{{ Searched }}</strong></p>
-      {% else %}
-      <p>No search term provided.</p>
-      {% endif %}
+     {% if searched %}
+  <h3>You searched for: {{ searched }}</h3>
+  {% if results %}
+    <ul>
+      {% for r in results %}
+        <li>{{ r.title }} — {{ r.content|truncatewords:20 }}</li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>No matches found.</p>
+  {% endif %}
+{% endif %}
+
 
     </div><!-- end of container -->
   </section><!-- end of contact section -->
