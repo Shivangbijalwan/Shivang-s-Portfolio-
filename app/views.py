@@ -12,9 +12,9 @@ from django.http import HttpResponse
 
 def handleSearch(request):
     if request.method == "POST":
-       Searched = request.POST['Searched']
-       venues = Venue.objects.filter(name__contains=Searched)
-       return render(request, "searchs.html", {"Searched": Searched, "venues": venues})
+       Search = request.POST['Searched']
+     #  venues = Venue.objects.filter(name__contains=Search)  add this when you have a models named vanues  this will work for cart and items available
+       return render(request, "searchs.html", {"Searched": Search})
     else:
         return render(request, "searchs.html")
     
