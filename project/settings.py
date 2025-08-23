@@ -24,7 +24,7 @@ DEBUG = os.getenv("DEBUG", "True") == "True"
 ALLOWED_HOSTS = [
     "127.0.0.1",
     "localhost",
-    "https://shivang-bijalwan-w43q.onrender.com/",  # 🔥 Replace with your actual Render deployed link
+    "shivang-bijalwan-w43q.onrender.com/",  # 🔥 Replace with your actual Render deployed link
 ]
 
 # Application definition
